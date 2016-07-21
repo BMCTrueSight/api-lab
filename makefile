@@ -1,4 +1,4 @@
-PAGES = README.md overview.md events.md metrics.md measurements.md
+PAGES = README.md rest.md events.md metrics.md measurements.md
 SOURCE_DOC = api-lab.md
 TARGET_DOC = api-lab.docx
 doc:

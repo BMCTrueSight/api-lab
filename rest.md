@@ -11,12 +11,39 @@ Agenda
 - Run Labs
 - Overview slides of API
 
-Postman Setup
--------------
+Postman Installation and Configuration
+-------------------------------
+
+This lab and proceeding labs use the PostMan Chrome plugin for executing REST commands.
+
+The chrome plugin and the lab material are required to be loaded to complete any of the labs.
+
+
+### Installation
 
 1. Launch Chrome Browser
 2. Install Postman [here](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
-3. Import Lab exercises into Postman.
+
+### Importing Lab Exercises
+
+1. Launch Chrome Browser
+2. Type the following URI into the browser address bar: `chrome://apps`.
+3. Click on the Postman icon as shown here:
+
+    ![Postman Chrome Application](img/postman-launch.png)
+
+4. Click on the _Import_ button:
+
+    ![Import API Collection](img/postman-import.png)
+    
+5. Click on the _Import From Link_:
+
+    ![Import API Collection](img/postman-import-link.png)
+    
+6. Click on the _Import From Link_:
+
+    ![Import API Collection](img/postman-import-link.png)
+    
 
 Lab Exercises
 -------------

@@ -1,0 +1,93 @@
+{
+	"variables": [],
+	"info": {
+		"name": "REST Lab",
+		"_postman_id": "e43e18a2-67d4-e780-6251-814421fac743",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Exercise 1.1 GET request",
+			"request": {
+				"url": "https://httpbin.org/get",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Provides an example of a HTTP Get request to http://httpbin.org."
+			},
+			"response": []
+		},
+		{
+			"name": "Exercise 1.2 GET request with parameters",
+			"request": {
+				"url": "https://httpbin.org/get?foo=bar&color=red",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Exercise 1-3 POST request",
+			"request": {
+				"url": "https://httpbin.org/post",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Exercise 1-4 POST request with JSON payload",
+			"request": {
+				"url": "https://httpbin.org/post",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"foo\": \"bar\",\n    \"red\": true,\n    \"curly\": 101\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Exercise 1-5 PUT request",
+			"request": {
+				"url": "https://httpbin.org/put",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"foo\": \"bar\",\n    \"red\": true,\n    \"curly\": 101\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
