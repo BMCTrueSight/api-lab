@@ -1,0 +1,435 @@
+{
+	"variables": [],
+	"info": {
+		"name": "LL35 - BMC TrueSight Cloud API",
+		"_postman_id": "7f11d9da-858a-93c7-6ed3-3d76ab0ae495",
+		"description": "This collection consists of example REST examples along with the TrueSight Cloud REST API for:\n\n- Events\n- Metrics\n- Measurements",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lab 1 - REST",
+			"description": "This section provides example REST calls to get an understanding of the different REST methods that are typically used.",
+			"item": [
+				{
+					"name": "Exercise 1.1 GET request",
+					"request": {
+						"url": "https://httpbin.org/get",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Provides an example of a HTTP Get request to http://httpbin.org."
+					},
+					"response": []
+				},
+				{
+					"name": "Exercise 1.2 GET request with parameters",
+					"request": {
+						"url": "https://httpbin.org/get?foo=bar&color=red",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Exercise 1-3 POST request",
+					"request": {
+						"url": "https://httpbin.org/post",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Exercise 1-4 POST request with JSON payload",
+					"request": {
+						"url": "https://httpbin.org/post",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"foo\": \"bar\",\n    \"red\": true,\n    \"curly\": 101\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Exercise 1-5 PUT request",
+					"request": {
+						"url": "https://httpbin.org/put",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"foo\": \"bar\",\n    \"red\": true,\n    \"curly\": 101\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lab 2 - Events",
+			"description": "",
+			"item": [
+				{
+					"name": "Exercise 2-3 Event Create with Application ID and Event Class",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "david_gwartney@bmc.com",
+								"password": "api.4c7a64ed3f-8593",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.truesight.bmc.com/v1/events",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"test event\",\n    \"fingerprintFields\": [\"@title\", \"@message\"],\n    \"status\": \"OPEN\",\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"},\n    \"properties\": {\"app_id\": \"LittleDog\"},\n    \"eventClass\": \"Dude\"\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Exercise 2-1 Event Create",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "david_gwartney@bmc.com",
+								"password": "api.4c7a64ed3f-8593",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.truesight.bmc.com/v1/events",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"test event\",\n    \"fingerprintFields\": [\"@title\", \"@message\"],\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Exercise 2-2 Event Create with Message and Status",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "david_gwartney@bmc.com",
+								"password": "api.4c7a64ed3f-8593",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.truesight.bmc.com/v1/events",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"test event\",\n    \"fingerprintFields\": [\"@title\", \"@message\"],\n    \"status\": \"OPEN\",\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Exercise 2-3 Event Create with Application ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "david_gwartney@bmc.com",
+								"password": "api.4c7a64ed3f-8593",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.truesight.bmc.com/v1/events",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"test event\",\n    \"fingerprintFields\": [\"@title\", \"@message\"],\n    \"message\": \"Hello World!\",\n    \"status\": \"OPEN\",\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"},\n    \"properties\": {\"app_id\": \"LittleDog\"}\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lab 3 - Metrics",
+			"description": "",
+			"item": [
+				{
+					"name": "Metric Get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\n\n\ntests[\"Body matches string\"] = responseBody.has(\"CPU\");"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.truesight.bmc.com/v1/metrics",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Metric Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "var jsonData = JSON.parse(responseBody);\ntests[\"Your test name\"] = jsonData.value === 100;"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.truesight.bmc.com/v1/metrics",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"JDG_MY_METRIC\",\n   \"description\": \"A cool metric I created\",\n   \"displayName\": \"My cool metric\",\n   \"displayNameShort\": \"cool metric\",\n   \"unit\": \"number\",\n   \"defaultAggregate\": \"avg\"\n}"
+						},
+						"description": "Request body properties\nname Name of the metric, must be globally unique, recommended that you add your own namespace\ntype Type of metric, could be a device metric, a plugin metric or any arbitrary type\ndescription Description of the metric\ndisplayName Short name to use when referring to the metric\ndisplayNameShort Terse short name when referring to the metric and space is limited, less than 15 characters preferred.\nunit The units of measurement for the metric, can be percent, number, bytecount, or duration\ndefaultAggregate When graphing (or grouping at the 1 second interval) the aggregate function that makes most sense for this metric. Can be sum, avg, max, or min.\ndefaultResolutionMS Expected polling time of data in milliseconds. Used to improve rendering of graphs for non-one-second polled metrics.\nisDisabled Is this metric disabled"
+					},
+					"response": []
+				},
+				{
+					"name": "Metric Delete",
+					"request": {
+						"url": {
+							"raw": "https://api.truesight.bmc.com/v1/metrics/:metric",
+							"protocol": "https",
+							"auth": {},
+							"host": [
+								"api",
+								"truesight",
+								"bmc",
+								"com"
+							],
+							"path": [
+								"v1",
+								"metrics",
+								":metric"
+							],
+							"variable": [
+								{
+									"value": "",
+									"id": "metric"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Metric Update",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "david_gwartney@bmc.com",
+								"password": "api.4c7a64ed3f-8593",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": {
+							"raw": "https://api.truesight.bmc.com/v1/metrics/:metric",
+							"protocol": "https",
+							"auth": {},
+							"host": [
+								"api",
+								"truesight",
+								"bmc",
+								"com"
+							],
+							"path": [
+								"v1",
+								"metrics",
+								":metric"
+							],
+							"variable": [
+								{
+									"value": "FOO",
+									"id": "metric"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lab 4 - Measurements",
+			"description": "",
+			"item": [
+				{
+					"name": "Measurement Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Body matches string\"] = responseBody.has(\"true\");\n\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Check for success true\"] = jsonData.result.success === true;"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.truesight.bmc.com/v1/measurements",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"source\": \"myserver\",\n   \"metric\": \"CPU\",\n   \"measure\": 0.1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
