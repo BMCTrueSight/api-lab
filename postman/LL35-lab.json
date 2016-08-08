@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "LL35 - BMC TrueSight Cloud API",
-		"_postman_id": "7f11d9da-858a-93c7-6ed3-3d76ab0ae495",
+		"_postman_id": "776b25a8-d4c5-3408-72d4-e550e98f95d4",
 		"description": "This collection consists of example REST examples along with the TrueSight Cloud REST API for:\n\n- Events\n- Metrics\n- Measurements",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 			"description": "This section provides example REST calls to get an understanding of the different REST methods that are typically used.",
 			"item": [
 				{
-					"name": "Exercise 1.1 GET request",
+					"name": "1.1 - GET request",
 					"request": {
 						"url": "https://httpbin.org/get",
 						"method": "GET",
@@ -26,7 +26,7 @@
 					"response": []
 				},
 				{
-					"name": "Exercise 1.2 GET request with parameters",
+					"name": "1.2 - GET request with parameters",
 					"request": {
 						"url": "https://httpbin.org/get?foo=bar&color=red",
 						"method": "GET",
@@ -40,7 +40,7 @@
 					"response": []
 				},
 				{
-					"name": "Exercise 1-3 POST request",
+					"name": "1.3 - POST request",
 					"request": {
 						"url": "https://httpbin.org/post",
 						"method": "POST",
@@ -54,7 +54,7 @@
 					"response": []
 				},
 				{
-					"name": "Exercise 1-4 POST request with JSON payload",
+					"name": "1.4 - POST request with JSON payload",
 					"request": {
 						"url": "https://httpbin.org/post",
 						"method": "POST",
@@ -74,7 +74,7 @@
 					"response": []
 				},
 				{
-					"name": "Exercise 1-5 PUT request",
+					"name": "1.5 - PUT request",
 					"request": {
 						"url": "https://httpbin.org/put",
 						"method": "PUT",
@@ -87,7 +87,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"foo\": \"bar\",\n    \"red\": true,\n    \"curly\": 101\n}"
+							"raw": "{\n    \"foo\": \"bar\",\n    \"red\": false,\n    \"curly\": 201\n}"
 						},
 						"description": ""
 					},
@@ -100,13 +100,13 @@
 			"description": "",
 			"item": [
 				{
-					"name": "Exercise 2-3 Event Create with Application ID and Event Class",
+					"name": "2.1 - Create",
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": {
-								"username": "david_gwartney@bmc.com",
-								"password": "api.4c7a64ed3f-8593",
+								"username": "{{EMAIL}",
+								"password": "{{API_TOKEN}}",
 								"saveHelperData": true,
 								"showPassword": false
 							}
@@ -118,29 +118,24 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
-							},
-							{
-								"key": "Authorization",
-								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
-								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"test event\",\n    \"fingerprintFields\": [\"@title\", \"@message\"],\n    \"status\": \"OPEN\",\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"},\n    \"properties\": {\"app_id\": \"LittleDog\"},\n    \"eventClass\": \"Dude\"\n}\n"
+							"raw": "{\n    \"title\": \"simple event\",\n    \"fingerprintFields\": [\"@title\"],\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"}\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Exercise 2-1 Event Create",
+					"name": "2.2 - Create with Status and Severity",
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": {
-								"username": "david_gwartney@bmc.com",
-								"password": "api.4c7a64ed3f-8593",
+								"username": "{{EMAIL}",
+								"password": "{{API_TOKEN}}",
 								"saveHelperData": true,
 								"showPassword": false
 							}
@@ -152,29 +147,24 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
-							},
-							{
-								"key": "Authorization",
-								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
-								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"test event\",\n    \"fingerprintFields\": [\"@title\", \"@message\"],\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"}\n}"
+							"raw": "{\n    \"title\": \"test event with status and severity\",\n    \"fingerprintFields\": [\"@title\"],\n    \"status\": \"OPEN\",\n    \"severity\": \"WARN\",\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"}\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Exercise 2-2 Event Create with Message and Status",
+					"name": "2.3 - Create with Application ID and Event Class",
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": {
-								"username": "david_gwartney@bmc.com",
-								"password": "api.4c7a64ed3f-8593",
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
 								"saveHelperData": true,
 								"showPassword": false
 							}
@@ -186,29 +176,24 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
-							},
-							{
-								"key": "Authorization",
-								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
-								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"test event\",\n    \"fingerprintFields\": [\"@title\", \"@message\"],\n    \"status\": \"OPEN\",\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"}\n}"
+							"raw": "{\n    \"title\": \"test event with application id and event type\",\n    \"fingerprintFields\": [\"@title\"],\n    \"status\": \"OPEN\",\n    \"severity\": \"WARN\",\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"},\n    \"properties\": {\"app_id\": \"LittleDog\"},\n    \"eventClass\": \"Dude\"\n}\n"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Exercise 2-3 Event Create with Application ID",
+					"name": "2.4 - Continuously Send Events",
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": {
-								"username": "david_gwartney@bmc.com",
-								"password": "api.4c7a64ed3f-8593",
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
 								"saveHelperData": true,
 								"showPassword": false
 							}
@@ -220,16 +205,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
-							},
-							{
-								"key": "Authorization",
-								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
-								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"test event\",\n    \"fingerprintFields\": [\"@title\", \"@message\"],\n    \"message\": \"Hello World!\",\n    \"status\": \"OPEN\",\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"},\n    \"properties\": {\"app_id\": \"LittleDog\"}\n}\n"
+							"raw": "{\n    \"title\": \"test event with application id and event type\",\n    \"fingerprintFields\": [\"@title\"],\n    \"status\": \"OPEN\",\n    \"severity\": \"WARN\",\n    \"source\": {\"ref\": \"myhost\", \"type\": \"host\"},\n    \"properties\": {\"app_id\": \"LittleDog\"},\n    \"eventClass\": \"Dude\"\n}\n"
 						},
 						"description": ""
 					},
@@ -242,36 +222,36 @@
 			"description": "",
 			"item": [
 				{
-					"name": "Metric Get",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\n\n\ntests[\"Body matches string\"] = responseBody.has(\"CPU\");"
-							}
-						}
-					],
+					"name": "3.1 - Create",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
 						"url": "https://api.truesight.bmc.com/v1/metrics",
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"key": "Content-Type",
+								"value": "application/json",
 								"description": ""
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": []
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"MY_METRIC\",\n   \"description\": \"A cool metric I created\",\n   \"displayName\": \"My cool metric\",\n   \"displayNameShort\": \"cool metric\",\n   \"unit\": \"number\",\n   \"defaultAggregate\": \"avg\",\n   \"defaultResolutionMS\": 10000,\n   \"type\": \"MINE\"\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Metric Create",
+					"name": "3.2 - Create Batch",
 					"event": [
 						{
 							"listen": "test",
@@ -282,14 +262,18 @@
 						}
 					],
 					"request": {
-						"url": "https://api.truesight.bmc.com/v1/metrics",
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.truesight.bmc.com/v1/batch/metrics",
 						"method": "POST",
 						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
-								"description": ""
-							},
 							{
 								"key": "Content-Type",
 								"value": "application/json",
@@ -298,55 +282,20 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"JDG_MY_METRIC\",\n   \"description\": \"A cool metric I created\",\n   \"displayName\": \"My cool metric\",\n   \"displayNameShort\": \"cool metric\",\n   \"unit\": \"number\",\n   \"defaultAggregate\": \"avg\"\n}"
-						},
-						"description": "Request body properties\nname Name of the metric, must be globally unique, recommended that you add your own namespace\ntype Type of metric, could be a device metric, a plugin metric or any arbitrary type\ndescription Description of the metric\ndisplayName Short name to use when referring to the metric\ndisplayNameShort Terse short name when referring to the metric and space is limited, less than 15 characters preferred.\nunit The units of measurement for the metric, can be percent, number, bytecount, or duration\ndefaultAggregate When graphing (or grouping at the 1 second interval) the aggregate function that makes most sense for this metric. Can be sum, avg, max, or min.\ndefaultResolutionMS Expected polling time of data in milliseconds. Used to improve rendering of graphs for non-one-second polled metrics.\nisDisabled Is this metric disabled"
-					},
-					"response": []
-				},
-				{
-					"name": "Metric Delete",
-					"request": {
-						"url": {
-							"raw": "https://api.truesight.bmc.com/v1/metrics/:metric",
-							"protocol": "https",
-							"auth": {},
-							"host": [
-								"api",
-								"truesight",
-								"bmc",
-								"com"
-							],
-							"path": [
-								"v1",
-								"metrics",
-								":metric"
-							],
-							"variable": [
-								{
-									"value": "",
-									"id": "metric"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
+							"raw": "[\n   {\n      \"name\": \"MY_COOL_METRIC1\",\n      \"description\": \"A cool metric I created first\",\n      \"displayName\": \"My cool metric1\",\n      \"displayNameShort\": \"cool metric1\",\n      \"unit\": \"number\",\n      \"defaultAggregate\": \"avg\",\n      \"defaultResolutionMS\": 1000,\n      \"type\": \"MINE\"\n   },\n   {\n      \"name\": \"MY_COOL_METRIC2\",\n      \"description\": \"A cool metric I created second\",\n      \"displayName\": \"My cool metric2\",\n      \"displayNameShort\": \"cool metric2\",\n      \"unit\": \"percent\",\n      \"defaultAggregate\": \"avg\",\n      \"defaultResolutionMS\": 1000,\n      \"type\": \"MINE\"\n   },\n   {\n      \"name\": \"MY_COOL_METRIC3\",\n      \"description\": \"A cool metric I created third\",\n      \"displayName\": \"My cool metric3\",\n      \"displayNameShort\": \"cool metric3\",\n      \"unit\": \"duration\",\n      \"defaultAggregate\": \"avg\",\n      \"defaultResolutionMS\": 1000,\n      \"type\": \"MINE\"\n   }\n]"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Metric Update",
+					"name": "3.3 - Update",
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": {
-								"username": "david_gwartney@bmc.com",
-								"password": "api.4c7a64ed3f-8593",
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
 								"saveHelperData": true,
 								"showPassword": false
 							}
@@ -368,7 +317,7 @@
 							],
 							"variable": [
 								{
-									"value": "FOO",
+									"value": "MY_METRIC",
 									"id": "metric"
 								}
 							]
@@ -376,14 +325,64 @@
 						"method": "PUT",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
+								"key": "Content-Type",
+								"value": "application/json",
 								"description": ""
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": []
+							"mode": "raw",
+							"raw": "{\n   \"description\": \"A cool metric I updated\",\n   \"displayName\": \"My cool metric\",\n   \"displayNameShort\": \"cool metric\",\n   \"unit\": \"number\",\n   \"defaultAggregate\": \"avg\",\n   \"defaultResolutionMS\": 1000,\n   \"type\": \"MINE\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "3.4 - Delete",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": {
+							"raw": "https://api.truesight.bmc.com/v1/metrics/:metric",
+							"protocol": "https",
+							"auth": {},
+							"host": [
+								"api",
+								"truesight",
+								"bmc",
+								"com"
+							],
+							"path": [
+								"v1",
+								"metrics",
+								":metric"
+							],
+							"variable": [
+								{
+									"value": "MY_METRIC",
+									"id": "metric"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
 						},
 						"description": ""
 					},
@@ -396,7 +395,108 @@
 			"description": "",
 			"item": [
 				{
-					"name": "Measurement Create",
+					"name": "4.1 - Create",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.truesight.bmc.com/v1/measurements",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"metric\": \"CPU\",\n   \"source\": \"myserver\",\n   \"measure\": 0.1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "4.2 - Create with Application Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.truesight.bmc.com/v1/measurements",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"source\": \"myserver\",\n   \"metric\": \"CPU\",\n   \"measure\": 0.1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "4.3 - Create Batch",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": "var t = new Date()\n\npostman.setEnvironmentVariable('TIMESTAMP_1', t.getTime());\nt.setSeconds(t.getSeconds() + 1);\npostman.setEnvironmentVariable('TIMESTAMP_2', t.getTime());\nt.setSeconds(t.getSeconds() + 1);\npostman.setEnvironmentVariable('TIMESTAMP_2', t.getTime());\n"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "https://api.truesight.bmc.com/v1/measurements",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTo2MWJiNTI4OS00YTc0LTRmNmQtYTU4Yy1iYjhiZjRkNzFlNDc=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    [\n      \"myserver\",\n      \"CPU\",\n      0.1,\n      1377043134,\n      {\n         \"app_id\": \"MyApp\"\n      }\n    ],\n    [\n      \"myserver\",\n      \"CPU\",\n      0.3,\n      1377043134,\n      {\n         \"app_id\": \"MyApp\"\n      }\n    ],\n    [\n      \"myserver\",\n      \"CPU\",\n      0.7,\n      1377043134,\n      {\n         \"app_id\": \"MyApp\"\n      }\n    ]\n]"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "4.4 - Continuously Send Measurements",
 					"event": [
 						{
 							"listen": "test",
@@ -407,14 +507,18 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "{{EMAIL}}",
+								"password": "{{API_TOKEN}}",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
 						"url": "https://api.truesight.bmc.com/v1/measurements",
 						"method": "POST",
 						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic ZGF2aWRfZ3dhcnRuZXlAYm1jLmNvbTphcGkuNGM3YTY0ZWQzZi04NTkz",
-								"description": ""
-							},
 							{
 								"key": "Content-Type",
 								"value": "application/json",
